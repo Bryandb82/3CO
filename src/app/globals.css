@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-test: hsl(56, 100%, 65%);
+  }
+
+  :root[data-theme="light"] {
+    --color-bg: 0deg 0% 90%;
+    --color-content: 0deg 0% 20%;
+    --color-groupbg: 0deg 0% 100%;
+    --color-accent1: 193deg 44% 44%;
+    --color-accent2: 56deg 100% 65%;
+  }
+  :root[data-theme="dark"] {
+    --color-bg: 0deg 0% 20%;
+    --color-content: 0deg 0% 90%;
+    --color-groupbg: 0deg 0% 100%;
+    --color-accent1: 193deg 44% 44%;
+    --color-accent2: 56deg 100% 65%;
+  }
+}
+
+* {
+  transition: 400ms;
+}
+
+html {
+  width: 100%;
+  padding: 0 0;
+  margin: 0 0;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  height: fit-content;
+  width: 99vw;
+  flex: auto;
+  flex-direction: column;
+}
+
+.fullPage {
+  padding: 0px;
+  margin: 2px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footerItem {
+}
+
+.paragraphText {
+  word-spacing: 24px;
+  font-size: 2.5rem;
+}
+
+.brandText {
+  word-spacing: 2px;
+  font-size: 1.8rem;
+  padding: 10px 4px 30px 4px;
+}
+
+.textBlock {
+  margin: 2rem;
+}
+
+.titleNormal {
+  font-weight: normal;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.titleBold {
+  font-weight: bold;
+  font-size: 4rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.boldText {
+  font-weight: normal;
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
