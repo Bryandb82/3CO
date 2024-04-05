@@ -4,9 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import { ThemeProvider } from "./ThemeContext";
-import SideProgressBar from "@/components/SideProgressBar";
-import { useState } from "react";
+import { ThemeProvider } from "@/constants/ThemeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,22 +18,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { scrollData, setScrollData } = useState<React.SyntheticEvent<
-    HTMLDivElement,
-    WheelEvent
-  > | null>(null);
-
-  const handleScroll = (
-    event: React.SyntheticEvent<HTMLDivElement, WheelEvent>
-  ) => {
-    setScrollData(event);
-  };
-
   return (
     <html lang="en">
-      <body className="bg-bg text-content" onScroll={handleScroll}>
+      <body className="text-content">
         <ThemeProvider>
-          <SideProgressBar data={scrollData} />
           <NavBar />
           {children}
           <Footer />

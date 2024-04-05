@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { brands, BrandComponentInterface } from "@/constants/brands";
+import { brands, BrandComponentType, BrandType } from "@/constants/brands";
 
-export function BrandBox({ brandList = brands }: BrandComponentInterface) {
+export function BrandBox({ brandList = brands }: BrandComponentType) {
   return (
     <div
       id="brandBoxContainer"
       className="grid grid-cols-2 lg:grid-cols-4 gap-10 w-5/6 h-full lg:w-5/6 items-center bg-groupbg rounded-xl"
     >
-      {brandList.map((brand, index) => (
+      {brandList.map((brand: BrandType, index: number) => (
         <div className="flex h-64 items-center p-2 m-auto" key={index}>
           <a href={brand.href}>
             <Image

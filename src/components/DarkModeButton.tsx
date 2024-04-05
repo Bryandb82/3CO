@@ -2,7 +2,7 @@
 import Image from "next/image";
 import sunSVG from "/public/Sun.svg";
 import moonSVG from "/public/Moon.svg";
-import { useTheme } from "@/app/ThemeContext";
+import { useTheme } from "@/constants/ThemeContext";
 
 export default function DarkModeButton() {
   const { theme, setTheme } = useTheme();

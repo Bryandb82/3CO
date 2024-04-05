@@ -2,9 +2,15 @@
 import Image from "next/image";
 import blackLogo from "/public/BlackLogo.png";
 import whiteLogo from "/public/WhiteLogo.png";
-import { useTheme } from "@/app/ThemeContext";
+import { useTheme } from "@/constants/ThemeContext";
 
-export default function Logo({ themeOverride }: { themeOverride?: string }) {
+export default function Logo({
+  themeOverride,
+  className,
+}: {
+  themeOverride?: string;
+  className?: string;
+}) {
   const { theme } = useTheme();
 
   const logoSrc = themeOverride
@@ -17,7 +23,7 @@ export default function Logo({ themeOverride }: { themeOverride?: string }) {
 
   return (
     <div>
-      <Image src={logoSrc} alt="Company Logo" className="mb-2 mt-2" />
+      <Image src={logoSrc} alt="Company Logo" className={`${className}`} />
     </div>
   );
 }

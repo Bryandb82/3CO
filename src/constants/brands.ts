@@ -18,18 +18,19 @@ import netgearShowcaseImage from "/public/brands/NetgearShowcaseImage.jpg";
 import shureShowcaseImage from "/public/brands/ShureShowcaseImage.jpg";
 import logitechShowcaseImage from "/public/brands/LogitechShowcaseImage.jpg";
 
-export type Brand = {
+export type BrandType = {
   name: string;
+  fancyName: string;
   image: StaticImageData;
   href: string;
   altText: string;
   infoText: string;
   showcaseImage: StaticImageData;
+  showcaseAltText: String;
 };
 
-export type BrandComponentInterface = {
-  brandList?: Brand[];
-  setBrand: (selected: string) => void;
+export type BrandComponentType = {
+  brandList?: BrandType[];
 };
 
 export const brands = [

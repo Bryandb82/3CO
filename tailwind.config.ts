@@ -14,6 +14,7 @@ const config: Config = {
         2: "hsl(var(--color-accent2) / <alpha-value>)",
       },
       bg: "hsl(var(--color-bg) / <alpha-value>)",
+      bg2: "hsl(var(--color-bg2) / <alpha-value>)",
       content: "hsl(var(--color-content) / <alpha-value>)",
       groupbg: "hsl(var(--color-groupbg) / <alpha-value>)",
     },

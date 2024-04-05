@@ -11,11 +11,11 @@ interface ImageBoxInterface {
 
 export default function ImageBox(props: ImageBoxInterface) {
   return (
-    <div className="flex flex-col md:flex-row p-10 m-5 w-full lg:w-4/6 h-auto items-center">
+    <div id="image-box" className="flex flex-col md:flex-row p-10 m-5 w-full lg:w-4/6 items-center">
       <Image
         src={props.imgSrc}
         alt={props.imgAlt}
-        className={`w-1/2 h-full shadow-xl rounded-xl md:${
+        className={`w-1/2 h-auto shadow-xl rounded-xl md:${
           props.imgFirst ? "order-0" : "order-1"
         }`}
       />

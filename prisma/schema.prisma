@@ -1,0 +1,75 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Certification {
+  id                Int @id @default(autoincrement())
+  creadtedAt        DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  name              String @db.VarChar(255)
+  fancyName         String
+  brand             String
+  content           String?
+  image             String?
+  showcaseImage     String?
+  href              String?
+  altText           String?
+  infoText          String?
+}
+
+model Manufacturer {
+  id                Int @id @default(autoincrement())
+  creadtedAt        DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  name              String @db.VarChar(255)
+  fancyName         String
+  image             String?
+  showcaseImage     String?
+  href              String?
+  altText           String?
+  infoText          String?
+  products          Product[]
+  technologies      Technology[]
+}
+
+model Product {
+  id                Int @id @default(autoincrement())
+  creadtedAt        DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  name              String @db.VarChar(255)
+  fancyName         String
+  manufacturer      Manufacturer @relation(fields: [manufacturerId], references: [id])
+  manufacturerId    Int
+  image             String?
+  href              String?
+  altText           String?
+  infoText          String?
+  price             Float
+}
+
+model Technology {
+  id                Int @id @default(autoincrement())
+  creadtedAt        DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  name              String @db.VarChar(255)
+  fancyName         String
+  manufacturer      Manufacturer @relation(fields:[manufacturerId], references: [id])
+  manufacturerId    Int
+  image             String?
+  showcaseImage     String?
+  href              String?
+  altText           String?
+  infoText          String?
+}

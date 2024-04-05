@@ -1,15 +1,12 @@
 "use client";
-import Image from "next/image";
-import { StaticImageData } from "next/image";
 import Link from "next/link";
-import TechnologyBox from "./TechnologyBox";
 import Logo from "./Logo";
 
 export default function Footer() {
   return (
     <div
       id="footer"
-      className="flex flex-col mt-32 w-full h-64 border-t-8 border-accent-1"
+      className="flex flex-col w-full h-64 border-t-8 border-accent-1"
     >
       <div id="footer-upper-container" className="flex flex-1 flex-row bg-bg">
         <div
