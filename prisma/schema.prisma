@@ -35,11 +35,13 @@ model Manufacturer {
   updatedAt         DateTime @updatedAt
   name              String @db.VarChar(255)
   fancyName         String
-  image             String?
+  logo              String?
+  logoAltText       String?
+  brandText         String?
   showcaseImage     String?
+  showcaseAltText   String?
+  showcaseText      String?
   href              String?
-  altText           String?
-  infoText          String?
   products          Product[]
   technologies      Technology[]
 }

@@ -4,20 +4,25 @@ import React, { useState } from "react";
 import { BrandType, brands } from "@/constants/brands";
 import ExistingBrandsList from "./ExistingBrandsList";
 import Image from "next/image";
+import ImageUploadContainer from "@/components/ImageUploadContainer";
 function Home() {
   const [currentBrand, setCurrentBrand] = useState<BrandType>(brands[1]);
 
   return (
     <div className="Full-Page">
-      <div id="brand-addBrand-container" className="flex flex-grow">
-        <ExistingBrandsList brands={brands} currentBrand={currentBrand} />
+      <div id="brand-addBrand-container" className="flex flex-grow w-2/3">
+        <ExistingBrandsList
+          brands={brands}
+          currentBrand={currentBrand}
+          selectBrand={setCurrentBrand}
+        />
         <div
           id="brand-info-container"
-          className="Brand-Info-Container flex flex-grow flex-col h-auto w-2/3 bg-bg2 rounded-xl shadow-lg items-center m-8 p-8 justify-evenly font"
+          className="Brand-Info-Container flex flex-grow flex-col h-auto w-full bg-bg2 rounded-xl shadow-lg items-center m-8 p-8 justify-evenly font"
         >
           <form
             id="brand-info-form"
-            className="flex flex-grow flex-col Fit-Content justify-evenly"
+            className="flex flex-grow flex-col w-full Fit-Content justify-evenly"
           >
             <div id="brand-info-names-container" className="flex gap-4">
               <div
@@ -27,7 +32,13 @@ function Home() {
                 <label htmlFor="name">
                   Internal Brand Name(all lower case):
                 </label>
-                <input type="text" id="brand-info-name" name="brandName" />
+                <input
+                  type="text"
+                  id="brand-info-name"
+                  name="brandName"
+                  value={currentBrand.name}
+                  className="p-4"
+                />
               </div>
               <div
                 id="brand-info-fancyName-container"
@@ -40,43 +51,48 @@ function Home() {
                   type="text"
                   id="brand-info-fancyName"
                   name="brandFancyName"
+                  value={currentBrand.fancyName}
+                  className="p-4"
                 />
               </div>
             </div>
-
-            <label htmlFor="infoText">Brand Description:</label>
-            <textarea id="brand-info-infoText" name="brandInfoText"></textarea>
-            <label htmlFor="infoText">Showcase Text:</label>
-            <textarea
-              id="brand-info-showcase-text"
-              name="brandInfoShowcaseText"
-            ></textarea>
-
-            <div id="brand-info-images-container">
-              <label htmlFor="brandLogo">Brand Logo:</label>
-              <input type="file" id="brandLogo" name="brandLogo" />
-              <Image src={currentBrand.image} alt={currentBrand.altText} />
-              <label htmlFor="altText">Brand Logo Description:</label>
-              <textarea id="brand-info-altText" name="brandAltText"></textarea>
-              <label htmlFor="showcaseImage">Showcase Image:</label>
-              <input
-                type="file"
-                id="showcase-image"
-                name="brandShowcaseImage"
-              />
-              <label htmlFor="showcaseAltText">Showcase Alt Text:</label>
+            <div className="flex flex-col">
+              <label htmlFor="infoText">Brand Description:</label>
               <textarea
-                id="brand-info-showcaseAltText"
-                name="brandShowcaseAltText"
+                id="brand-info-infoText"
+                name="brandInfoText"
+                value={currentBrand.brandText}
+              ></textarea>
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="infoText">Showcase Text:</label>
+              <textarea
+                id="brand-info-showcase-text"
+                name="brandInfoShowcaseText"
+                value={currentBrand.showcaseText}
               ></textarea>
             </div>
 
-            <label htmlFor="brandType">Brand Type:</label>
-            <select id="brandType" name="brandType">
-              <option value="type1">Type 1</option>
-              <option value="type2">Type 2</option>
-              <option value="type3">Type 3</option>
-            </select>
+            <div id="brand-info-images-container" className="flex">
+              <ImageUploadContainer
+                image={currentBrand.image}
+                altText={currentBrand.altText}
+                text="Brand Logo Discription"
+                inputFor={`brand-info-brandLogo`}
+                value={currentBrand.image}
+                className="flex-1"
+              />
+              <ImageUploadContainer
+                image={currentBrand.image}
+                altText={currentBrand.showcaseAltText}
+                text="Brand Logo Discription"
+                inputFor={`brand-info-brandLogo`}
+                value={currentBrand.showcaseImage}
+                className="flex-1"
+              />
+            </div>
+            <label htmlFor="brandHREF">Brand Website:</label>
+            <input type="text" value={currentBrand.href} />
 
             <button type="submit">Submit</button>
           </form>

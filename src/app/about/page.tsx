@@ -7,10 +7,9 @@ import {
   CertificationType,
   CertificationListType,
 } from "@/constants/certifications";
-import CertCard from "@/components/certifications/CertCard";
-import CertCarousel from "@/components/CertCarousel";
+import CertCarousel from "@/app/about/CertCarousel";
 import BrandBanner from "@/components/BrandBanner";
-import CertSelector from "@/components/CertSelector";
+import CertSelector from "@/app/about/CertSelector";
 import whiteLogo from "$/WhiteLogo.png";
 
 const defaultCard: CertificationType = {
@@ -31,7 +30,7 @@ function Home() {
     <div className="Full-Page">
       <BrandBanner className="text-content" />
       <div id="about-container" className="flex flex-1 flex-col">
-        <p className="About-Text w-full h-auto px-48 py-2 text-center">
+        <p className="About-Text w-full h-auto md:px-48 py-2 text-center">
           Welcome to Colorado Conference Connection, your premier destination
           for conference system solutions, catering to events both big and
           small. With over 15 years of experience in the industry, we have honed

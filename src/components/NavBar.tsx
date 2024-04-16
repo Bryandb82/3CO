@@ -89,7 +89,7 @@ export default function NavBar({ items }: NavBarType) {
   return (
     <div
       id="headerContainer"
-      className={`flex flex-row items-center justify-between w-full Nav-Bar top-0 sticky bg-bg text-content border-b-2 z-50 overflow-visible`}
+      className={`flex flex-grow flex-shrink items-center justify-between w-auto Nav-Bar top-0 sticky bg-bg text-content border-b-2 z-50`}
     >
       <div id="iconArea" className="flex w-16 p-2">
         <Link href="/">
@@ -99,7 +99,7 @@ export default function NavBar({ items }: NavBarType) {
       {items.map((item, index) => (
         <div
           key={index}
-          className="flex flex-row h-full text-right text-3xl group relative items-center"
+          className="flex flex-row flex-1 h-full text-right text-3xl group relative items-center"
         >
           <Link className="navLink" href={item.href}>
             <div className="flex flex-row items-center">

@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import Logo from "./Logo";
+import USFlag from "/public/USFlag.jpeg";
 
 export default function Footer() {
   return (
@@ -51,6 +53,12 @@ export default function Footer() {
         className="w-full bottom-0 text-center"
       >
         © Copyright 2024, Colorado Conference Connection LLC | Terms | Privacy
+        <Image
+          src={USFlag}
+          alt="United States Flag"
+          width={48}
+          className="ml-8"
+        />
       </div>
     </div>
   );

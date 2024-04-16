@@ -21,7 +21,9 @@ type ThemeProviderProps = {
 export const ThemeProviderContext = createContext<ThemeContext | null>(null);
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  );
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);

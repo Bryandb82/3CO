@@ -15,7 +15,6 @@ const CertCard: React.FC<CertCardProps> = ({ cert, className }) => {
           <Image
             src={cert.image}
             alt={cert.altText}
-            height={1500}
             className="h-full w-auto m-8"
           />
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Dispatch, SetStateAction, useState } from "react";
-import CertCard, { CertCardProps } from "./certifications/CertCard";
+import CertCard, { CertCardProps } from "@/app/about/CertCard";
 import {
   CertificationListType,
   CertificationType,
